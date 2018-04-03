@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MATCHES } from '../../mock-matches';
+import { Profile } from '../profile.model';
+import { MatchService } from '../match.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,12 +11,18 @@ export class NavbarComponent implements OnInit {
   isCollapsed = true;
   matchesCollapsed = true;
 
-  matches: Profile[] = MATCHES;
 
-  constructor() { }
+  matches: Profile[];
+
+  constructor(private matchService: MatchService) { }
 
   ngOnInit() {
-    console.log(this.matches.name)
+    this.getMatches();
+  }
+
+  getMatches(): void {
+    this.matchService.getMatches()
+      .subscribe(matches => this.matches = matches);
   }
 
 }

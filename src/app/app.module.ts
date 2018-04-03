@@ -9,6 +9,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MatchDetailComponent } from './match-detail/match-detail.component';
 import { DmComponent } from './dm/dm.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { MatchService } from './match.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { DmComponent } from './dm/dm.component';
     NavbarComponent,
     ProfileComponent,
     MatchDetailComponent,
-    DmComponent
+    DmComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { DmComponent } from './dm/dm.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ MatchService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

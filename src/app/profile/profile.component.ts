@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from '../profile.model.ts';
+import { Profile } from '../profile.model';
 
 @Component({
   selector: 'app-profile',

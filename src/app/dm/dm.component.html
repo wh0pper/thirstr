@@ -1,3 +1,18 @@
-<p>
-  dm works!
-</p>
+<div class="chat-container">
+  <div *ngFor="let chat of displayChats" class="speech-bubble">
+    {{chat.question}}
+  </div>
+
+
+  <div *ngIf="!exitMessage" class="speech-bubble">
+    <p>{{currentChat.question}}</p>
+
+  </div>
+
+  <div *ngIf="exitMessage">
+    <p>{{exitMessage}}</p>
+  </div>
+  <div *ngIf="this.chatIndex < this.chats.length">
+    <button class="btn btn-success"(click)="nextChat()">{{currentChat.engage}}</button> <button class="btn btn-danger" (click)="exitChat()">{{currentChat.deflect}}</button>
+  </div>
+</div>
